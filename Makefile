@@ -1,6 +1,6 @@
 TEXC  = latex
 PDFC  = pdflatex
-BIBC  = bibtex
+BIBC  = biber
 HTMLC = latex2html -info 0 -split 0 -no-navigation -html_version=4.1
 VIEWC = dvips
 P2PC  = ps2pdf -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode
@@ -39,6 +39,7 @@ subdirs:
 bib: $(PDFS)
 	@$(BIBC) `echo $< | sed 's/\.pdf//'`
 	@rm $<
+	@$(FORCE) $(LATEXD)
 
 index: $(PDFS)
 	@$(INDEX) main.nlo -s nomencl.ist -o main.nls
@@ -92,7 +93,7 @@ index: $(PDFS)
 forceit: $(LATEXD)
 	@$(FORCE) $<
 
-force: forceit all
+force: forceit
 
 view: $(PDFS)
 	@$(VIEW) $< &
