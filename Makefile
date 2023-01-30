@@ -92,14 +92,18 @@ index: $(PDFS)
 
 forceit: $(LATEXD)
 	@$(FORCE) $<
+	@rm main.pdf
 
-force: forceit
+force: forceit all
 
 view: $(PDFS)
 	@$(VIEW) $< &
 
 fedora-install:
 	@sudo dnf install texlive-newtx texlive-textpos texlive-chngcntr texlive-tocloft texlive-floatrow texlive-biblatex-apa
+
+zip: clean
+	@zip -r is-bpm-thesis-latex *
 
 clean:
 	@rm -f *.ps *.dvi main.pdf *.bak *.log *.aux *.toc *.out *.bbl *.blg main.nls main.nlo main.lo* main.ilg main.ind main.bcf main.run.xml
