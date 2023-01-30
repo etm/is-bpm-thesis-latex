@@ -1,0 +1,101 @@
+%%
+% TUM Corporate Design Text Base
+% Michael Riesch (michael.riesch@tum.de)
+% Based on the templates from https://www.tum.de/cd
+%
+% Provides the base for text documents.
+%
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tum-base-text}[2018/10/08 TUM Corporate Design Text Base v0.3]
+
+% A4 format? if not, use A5
+\newif\ifavier
+\aviertrue
+
+\DeclareOption{a4paper}{\aviertrue}
+\DeclareOption{a5paper}{\avierfalse}
+\ProcessOptions\relax
+
+\newlength{\tumlogowidth}
+\newlength{\tumlogoheight}
+
+\ifavier
+% set A4 geometry
+\setlength{\tumlogoheight}{14mm}
+\RequirePackage[a4paper]{geometry}
+\else
+% set A5 geometry
+\setlength{\tumlogoheight}{10mm}
+\RequirePackage[a5paper]{geometry}
+\fi
+
+\geometry{
+  top=2.54\tumlogoheight,
+  %headheight=48pt,
+  %headsep=\tumlogoheight,
+  %footskip=\tumlogoheight,
+  bottom=2.54\tumlogoheight,
+  inner=2.54\tumlogoheight,
+  outer=2.54\tumlogoheight
+}
+
+% custom captions
+\RequirePackage{caption}
+
+\captionsetup[figure]{
+  format=plain,
+  font={small},
+  labelfont={small,bf},
+  labelsep=space
+}
+
+\captionsetup[lstlisting]{
+  format=plain,
+  font={small},
+  labelfont={small,bf},
+  labelsep=space,
+  singlelinecheck=off
+}
+
+\captionsetup[table]{
+  format=plain,
+  font={small},
+  labelfont={small,bf},
+  labelsep=space
+}
+
+% Skalierung der Tabellen
+\renewcommand{\arraystretch}{1.1}
+
+% custom theorems
+\let\openbox\relax
+\RequirePackage{amsthm}
+\newtheoremstyle{tum}%
+                {3pt}%Space above
+                {3pt}%Space below
+                {}%Body font
+                {}%Indent amount
+                {\bfseries}%Theorem head font
+                {}%Punctuation after theorem head
+                {.5em}%Space after theorem head
+                {}%Theorem head spec can be left empty, meaning ‘normal’
+\theoremstyle{tum}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries#1]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother

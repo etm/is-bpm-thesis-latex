@@ -1,0 +1,38 @@
+%%
+% TUM Corporate Design User
+% Michael Riesch (michael.riesch@tum.de)
+% Based on the templates from https://www.tum.de/cd
+%
+% Provides the user information for all documents.
+%
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tum-user}[2018/03/20 TUM Corporate User v0.3]
+
+% personalization
+% fill in your custom commands etc.
+
+\titledescription{Thesis
+  for the Attainment of the Degree\\
+  \textbf{\thedegree}\\
+  \vspace{15pt}
+  at the \theschool,\\
+  \thedepartment,\\
+  \thechair
+}
+
+\fineprint{%
+  \textbf{Examiner}\\
+  \theexaminer\\
+  \vspace{12pt}
+  \textbf{Supervised by}\\
+  \thesupervisor\\
+  \vspace{12pt}
+  \textbf{Submitted by}\\
+  \@author\\
+  Matriculation Number: \thematnr\\
+  \vspace{12pt}
+  \textbf{Submitted on}\\
+  \thesubmissiondate
+}
