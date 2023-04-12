@@ -166,7 +166,8 @@
 
 \pagestyle{plain}
 
-\AtEndDocument{
+\RequirePackage{atveryend}
+\AtVeryEndDocument{
   \newpage
   \pagestyle{empty}
   {
@@ -316,7 +317,7 @@
 \usepackage{verbatim}
 \graphicspath{{img/}}
 \usepackage{wrapfig}
-\usepackage[backend=biber,style=apa, pagetracker=true]{biblatex}
+\usepackage[backend=biber,style=ieee, pagetracker=true]{biblatex}
 \addbibresource{literature.bib}
 \DeclareLanguageMapping{english}{english-apa}
 \pdfimageresolution 300
