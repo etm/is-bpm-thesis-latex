@@ -165,7 +165,6 @@
 }
 
 \pagestyle{plain}
-
 \RequirePackage{atveryend}
 \AtVeryEndDocument{
   \newpage
@@ -271,19 +270,19 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 
-\setcounter{secnumdepth}{-1}
+\setcounter{secnumdepth}{1}
 
 
 
 \SetBlockThreshold{0}
 
-\parindent=1.27cm
+\parindent=0cm
 \newcommand{\periodafter}[1]{#1.~~}
 \usepackage{titlesec}
 \titleclass{\chapter}{straight}
-\titleformat{\chapter}{\normalfont\LARGE\bfseries}{}{1em}{}
+\titleformat{\chapter}{\normalfont\LARGE\bfseries}{}{0em}{}
 \titlespacing{\chapter}{0pt}{12pt plus 0pt minus 12pt}{0pt}
-\titleformat{\section}{\normalfont\normalsize\bfseries}{}{1em}{}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{}{0em}{}
 \titlespacing{\section}{0pt}{12pt plus 0pt minus 12pt}{-12pt}
 \titleformat{\subsection}{\normalfont\normalsize\bfseries\itshape}{}{1em}{}
 \titlespacing{\subsection}{0pt}{12pt plus 0pt minus 12pt}{-12pt}
