@@ -48,6 +48,7 @@
 \newcommand{\fineprint}[1]{\renewcommand{\thefineprint}{#1}}
 \newcommand{\thesubtitle}{~}
 \newcommand{\subtitle}[1]{\renewcommand{\thesubtitle}{#1}}
+\newcommand{\germantitle}[1]{\renewcommand{\thesubtitle}{#1}}
 \newcommand{\thechair}{~}
 \newcommand{\chair}[1]{\renewcommand{\thechair}{#1}}
 \newcommand{\theschool}{~}
