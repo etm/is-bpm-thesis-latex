@@ -37,9 +37,6 @@
 % load base class
 \LoadClass[]{book}
 
-
-
-
 \newcommand{\thepublisher}{~}
 \newcommand{\publisher}[1]{\renewcommand{\thepublisher}{#1}}
 \newcommand{\thetitledescription}{~}
@@ -57,6 +54,8 @@
 \newcommand{\department}[1]{\renewcommand{\thedepartment}{#1}}
 \newcommand{\thedegree}{~}
 \newcommand{\degree}[1]{\renewcommand{\thedegree}{#1}}
+\newcommand{\thethesistype}{~}
+\newcommand{\thesistype}[1]{\renewcommand{\thethesistype}{#1}}
 
 \newcommand{\thesupervisor}{~}
 \newcommand{\supervisor}[1]{\renewcommand{\thesupervisor}{#1}}
@@ -75,7 +74,7 @@
 
 % custom titlepage
 \AtBeginDocument{
-    \begin{titlepage}
+  \begin{titlepage}
     \thispagestyle{titlepage}
     \ifavier
     % title page a4
@@ -84,11 +83,59 @@
 
     \fontfamily{phv}\selectfont
     {~\\}
-    { \flushleft\LARGE\bfseries\@title\par }
-    { \flushleft\Large\thesubtitle\par }
 
+
+    { \flushleft\large\textbf{\thethesistype}\par }
+    \vspace{1cm}
     { \flushleft\large\textcolor{TUMBlau}{\textbf{\@author}}\par }
     \vspace{1cm}
+    { \flushleft\LARGE\bfseries\@title\par }
+    \vspace{1cm}
+
+    \begin{textblock*}{13cm}[1,1](\paperwidth-2\tumlogoheight,
+      \paperheight-1\tumlogoheight)
+      \raggedleft
+      \includegraphics[width=11cm]{tum-resources/images/TUM_Uhrenturm.png}\par
+    \end{textblock*}
+    \end{singlespace}
+
+    \else
+    % title page a5
+    \fontfamily{phv}\selectfont
+    \vspace{12pt}
+    { \flushleft\huge\bfseries\@title\par }
+    { \flushleft\Large\@subtitle\par }
+    \vspace{12pt}
+    { \flushleft\Large\textcolor{TUMBlau}{\textbf{\@author}}\par
+      \thepublisher\par }
+    { \flushleft\large\thetitledescription\par }
+    { \flushleft\normalsize\thefineprint\par }
+
+    \begin{textblock*}{8cm}[1,1](\paperwidth-2\tumlogoheight, \paperheight)
+      \raggedleft
+      \includegraphics[width=8cm]{tum-resources/images/TUM_Uhrenturm.png}\par
+    \end{textblock*}
+    \fi
+
+    \vfill
+  \end{titlepage}
+
+  \begin{titlepage}
+    \thispagestyle{titlepage}
+    \ifavier
+    % title page a4
+    \begin{singlespace}
+    \vbox{}
+
+    \fontfamily{phv}\selectfont
+    {~\\}
+
+    { \flushleft\large\textbf{\thethesistype}\par }
+    { \flushleft\large\textcolor{TUMBlau}{\textbf{\@author}}\par }
+    { \flushleft\LARGE\bfseries\@title\par }
+    { \flushleft\Large\thesubtitle\par }
+    \vspace{1cm}
+
     { \flushleft\large\thetitledescription\par}
     \vspace{1cm}
     { \flushleft\normalsize\thefineprint\par }
@@ -167,7 +214,7 @@
 
 \pagestyle{plain}
 \RequirePackage{atveryend}
-\AtVeryEndDocument{
+\AtBeginDocument{
   \newpage
   \pagestyle{empty}
   {
@@ -176,7 +223,7 @@
     { \flushleft\huge\bfseries\center Declaration of Academic Integrity \par}
     \vspace{10mm}
     \noindent
-    I hereby declare that the thesis submitted is my own unaided work. All direct or indirect sources used are acknowledged as references.
+    I confirm that this bachelor's thesis is my own work and I have documented all sources and material used.
     \par\noindent
     I am aware that the thesis in digital form can be examined for the use of unauthorized aid and in order to determine whether the thesis as a whole or parts incorporated in it may be deemed as plagiarism. For the comparison of my work with existing sources I agree that it shall be entered in a database where it shall also remain after examination, to enable comparison with future theses submitted. Further rights of reproduction and usage, however, are not granted here.
     \par\noindent
@@ -310,8 +357,6 @@
 \captionsetup[table]{labelsep=newline}
 
 \usepackage[capposition=top]{floatrow}
-
-
 
 \usepackage{graphicx}
 \usepackage{verbatim}
