@@ -61,8 +61,8 @@
 \newcommand{\supervisor}[1]{\renewcommand{\thesupervisor}{#1}}
 \newcommand{\theexaminer}{~}
 \newcommand{\examiner}[1]{\renewcommand{\theexaminer}{#1}}
-\newcommand{\thematnr}{~}
-\newcommand{\matnr}[1]{\renewcommand{\thematnr}{#1}}
+%\newcommand{\thematnr}{~}
+%\newcommand{\matnr}[1]{\renewcommand{\thematnr}{#1}}
 \newcommand{\thesubmissiondate}{~}
 \newcommand{\submissiondate}[1]{\renewcommand{\thesubmissiondate}{#1}}
 \newcommand{\thehood}{~}
@@ -86,9 +86,9 @@
 
 
     { \flushleft\large\textbf{\thethesistype}\par }
-    \vspace{1cm}
+    \vspace{0.3cm}
     { \flushleft\large\textcolor{TUMBlau}{\textbf{\@author}}\par }
-    \vspace{1cm}
+    \vspace{0.3cm}
     { \flushleft\LARGE\bfseries\@title\par }
     \vspace{1cm}
 
@@ -131,7 +131,9 @@
     {~\\}
 
     { \flushleft\large\textbf{\thethesistype}\par }
+    \vspace{0.3cm}
     { \flushleft\large\textcolor{TUMBlau}{\textbf{\@author}}\par }
+    \vspace{0.3cm}
     { \flushleft\LARGE\bfseries\@title\par }
     { \flushleft\Large\thesubtitle\par }
     \vspace{1cm}
