@@ -299,6 +299,8 @@
 
 \usepackage{chngcntr}
 \counterwithout{footnote}{chapter}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 \usepackage[doublespacing]{setspace}
 \makeatletter
 \makeatother
