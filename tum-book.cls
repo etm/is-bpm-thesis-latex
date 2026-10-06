@@ -214,6 +214,11 @@
   }
 }
 
+\newsavebox{\aiusebox}
+\newenvironment{aiuse}%
+  {\begin{lrbox}{\z@}}% Use a scratch register temporary box
+  {\end{lrbox}\global\setbox\aiusebox\box\z@}
+
 \pagestyle{plain}
 \RequirePackage{atveryend}
 \AtBeginDocument{
@@ -225,13 +230,17 @@
     { \flushleft\huge\bfseries\center Declaration of Academic Integrity \par}
     \vspace{10mm}
     \noindent
-    I confirm that this bachelor's thesis is my own work and I have documented all sources and material used.
+    I confirm that this thesis is my own work and I have documented all sources and material used.
     \par\noindent
     I am aware that the thesis in digital form can be examined for the use of unauthorized aid and in order to determine whether the thesis as a whole or parts incorporated in it may be deemed as plagiarism. For the comparison of my work with existing sources I agree that it shall be entered in a database where it shall also remain after examination, to enable comparison with future theses submitted. Further rights of reproduction and usage, however, are not granted here.
     \par\noindent
+    All algorithms, functionalities, and datasets created as part of this thesis were designed and implemented by myself without the help of AI tools. All deviatiations from this rule, and all AI tool usage in general, is listed in full below:
+    \par\noindent
+    \usebox{\aiusebox}
+    \par\noindent
     This thesis was not previously presented to another examination board and has not been published. \par
     \begin{center}
-      \vspace{30mm}\noindent
+      \vspace{10mm}\noindent
       \thehood, \thesubmissiondate \hspace{5cm} \@author\par
     \end{center}
   }
@@ -322,9 +331,7 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 
-\setcounter{secnumdepth}{1}
-
-
+\setcounter{secnumdepth}{2}
 
 \SetBlockThreshold{0}
 
